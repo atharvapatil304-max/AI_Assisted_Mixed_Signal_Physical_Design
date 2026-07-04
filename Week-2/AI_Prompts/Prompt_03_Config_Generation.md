@@ -1,4 +1,4 @@
-# Codex Prompt 03 - OpenLane Configuration
+# Prompt 03 - OpenLane Configuration
 
 ## Prompt
 
