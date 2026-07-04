@@ -1,8 +1,4 @@
-# Codex Prompt 01 – Repository Analysis
-
-## Objective
-
-Analyze the reference mixed-signal physical design repository to understand its organization, design hierarchy, implementation flow, and key design files before reproducing the flow.
+# Prompt 01 – Repository Analysis
 
 ## Prompt
 
