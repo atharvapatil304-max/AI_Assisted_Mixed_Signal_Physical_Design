@@ -1,0 +1,23 @@
+{
+    "DESIGN_NAME": "design_mux",
+
+    "VERILOG_FILES": [
+        "dir::src/design_mux.v",
+        "dir::src/raven_spi.v",
+        "dir::src/AMUX2_3V_blackbox.v"
+    ],
+
+    "CLOCK_PORT": "select",
+    "CLOCK_PERIOD": 10,
+
+    "FP_CORE_UTIL": 20,
+    "PL_TARGET_DENSITY": 0.40,
+
+    "EXTRA_LEFS": [
+        "dir::lef/AMUX2_3V.lef"
+    ],
+
+    "EXTRA_LIBS": [
+        "dir::lib/AMUX2_3V.lib"
+    ]
+}
