@@ -94,10 +94,9 @@ During Week 2, AI tools were used to understand the structure of an existing mix
 
 | Section | Description |
 |----------|-------------|
-| Prompts | AI prompts used for repository analysis, macro investigation, and flow understanding |
-| Codex Prompts | Optimized prompts for reproducing specific implementation stages |
+| AI_Prompts | AI prompts used for repository analysis, macro investigation, and flow understanding |
 | Generated Files | AI-generated configuration files, Verilog examples, and supporting artifacts |
-| Commands | Command history and execution logs |
+| Logs| Command history and execution logs |
 | Errors and Fixes | Debugging notes, implementation issues, and resolutions |
 | Screenshots | Floorplanning, routing, and verification screenshots |
 | Observations | Technical findings and conclusions |
@@ -123,9 +122,8 @@ Week 3 focuses on tracing the implementation from RTL to the final GDSII layout,
 
 | Section | Description |
 |----------|-------------|
-| Prompts | AI-assisted prompts used during verification |
+| AI_Prompts | AI-assisted prompts used during verification |
 | Generated Files | Implementation artifacts produced during the OpenLane flow |
-| Commands | RTL-to-GDSII execution logs |
 | Errors and Fixes | Root-cause analysis and debugging documentation |
 | Screenshots | Layout verification using KLayout and Magic |
 | Observations | Final verification reports and implementation summary |
