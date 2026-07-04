@@ -1,0 +1,151 @@
+
+\documentclass[conference]{IEEEtran}
+
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\definecolor{darkblue}{RGB}{0,70,140}
+\usepackage{titlesec}
+\titleformat{\section}
+{\filcenter\bfseries\scshape\fontsize{10}{12}\selectfont\color{darkblue}}
+{\Roman{section}.}
+{0.5em}
+{\MakeUppercase}
+{}
+\titlespacing*{\section}{0pt}{0.45em}{0.25em}
+% Compress vertical spacing
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep,topsep=0pt,leftmargin=*}
+\setlist[enumerate]{noitemsep,topsep=0pt,leftmargin=*}
+
+\setlength{\textfloatsep}{4pt}
+\setlength{\floatsep}{4pt}
+\setlength{\intextsep}{4pt}
+
+
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 0.5em
+  \begin{center}
+    % Title: Bold and large like the image
+    {\LARGE\bfseries \@title \par}
+    \vskip 1.5em
+    % Author and metadata line on a single line separated by a vertical bar
+    {\normalsize Atharva Patil \quad\rule[-0.5ex]{0.5pt}{2.5ex}\quad VSD Internship Program --- Week 1 Report, June 2026 \par}
+    \vskip 0.8em
+    % Blue horizontal rule under title metadata
+    {\color{darkblue}\hrule height 1.5pt}
+  \end{center}
+  \par
+  \vskip -1.2em}
+\makeatother
+
+\begin{document}
+
+\title{\fontsize{17}{23}\selectfont\fontfamily{pnc}\bfseries AI-Assisted Study of a Mixed-Signal RTL-to-GDSII Flow Using OpenLane}
+
+\maketitle
+
+\begin{abstract}
+This report presents a study of the \textit{vsdmixedsignalflow} repository, an open-source project demonstrating mixed-signal physical design using the SKY130 PDK and OpenLane. The repository integrates an analog multiplexer macro with digital control logic and illustrates major RTL-to-GDSII implementation stages. AI-assisted workflows were used to understand repository organization, design inputs, LEF/LIB abstractions, OpenLane configuration, floorplanning, placement, routing, and verification concepts.
+\end{abstract}
+
+\section{\bfseries\MakeUppercase{Objective}}
+
+{\fontsize{9.7}{15}\selectfont The objective of this task was to understand the fundamentals of mixed-signal physical design and investigate how analog and digital blocks are integrated within an open-source RTL-to-GDSII implementation flow using OpenLane, SKY130, and analog macro abstractions such as LEF and LIB.}
+
+\section{\bfseries \MakeUppercase{Repository Summary}}
+
+{\fontsize{9.7}{15}\selectfont The \textit{vsdmixedsignalflow} repository demonstrates a mixed-signal design consisting of an analog multiplexer macro integrated with supporting digital logic. The project includes Verilog source files, LEF physical abstractions, timing libraries (LIB), Magic layout files, and OpenLane configuration scripts.}
+
+\begin{itemize}
+\item {\fontsize{9.7}{15}\selectfont \textbf{Analog Macro Integration:} Demonstrates how an analog multiplexer macro is incorporated into a digital RTL-to-GDSII implementation flow using LEF and LIB abstractions.}
+\item {\fontsize{9.7}{15}\selectfont \textbf{Physical Design Flow:} Illustrates floorplanning, placement, PDN generation, routing, verification, and final layout generation using OpenLane and SKY130.}
+\end{itemize}
+
+
+
+
+\section{\MakeUppercase{AI-Assisted Workflow}}
+
+{\fontsize{9.7}{15}\selectfont AI tools were used to accelerate repository understanding and workflow planning. The following activities were performed using AI assistance:}
+
+\begin{itemize}
+\item {\fontsize{9.7}{15}\selectfont Repository structure analysis}
+\item {\fontsize{9.7}{15}\selectfont Study LEF and LIB files}
+\item {\fontsize{9.7}{15}\selectfont Analyze OpenLane flow stages}
+\item {\fontsize{9.7}{15}\selectfont Understand analog macro integration}
+\item {\fontsize{9.7}{15}\selectfont Learn routing and verification concepts}
+\item {\fontsize{9.7}{15}\selectfont Organize documentation and observations}
+\end{itemize}
+
+\section{\MakeUppercase{Experiments Attempted}}
+
+{\fontsize{9.7}{15}\selectfont The following investigations were performed:}
+
+\begin{enumerate}
+\item {\fontsize{9.7}{15}\selectfont Exploration of repository structure}
+\item {\fontsize{9.7}{15}\selectfont Analysis of top-level Verilog modules}
+\item {\fontsize{9.7}{15}\selectfont Study of LEF and LIB files}
+\item {\fontsize{9.7}{15}\selectfont OpenLane configuration review}
+\item {\fontsize{9.7}{15}\selectfont Floorplanning analysis}
+\item {\fontsize{9.7}{15}\selectfont Placement and routing study}
+\item {\fontsize{9.7}{15}\selectfont Layout observation}
+\item {\fontsize{9.7}{15}\selectfont Documentation of design stages}
+\end{enumerate}
+
+\section{\bfseries Results and Observations}
+
+{\fontsize{9.7}{15}\selectfont The repository successfully demonstrates integration of an
+analog macro within a digital implementation environment.
+LEF and LIB representations allow the analog block to participate
+in physical design without exposing internal layout details.}
+
+\begin{itemize}
+\item {\fontsize{9.7}{15}\selectfont \textbf{Analog Macro Abstraction:} LEF and LIB views enable
+the analog multiplexer to be incorporated into the digital
+implementation flow while preserving internal layout
+confidentiality.}
+
+\item {\fontsize{9.7}{15}\selectfont \textbf{OpenLane-Based Implementation:} The OpenLane flow
+organizes implementation into synthesis, floorplanning,
+placement, power planning, routing, and verification stages,
+providing a practical example of mixed-signal design using
+open-source EDA tools.}
+\end{itemize}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.4\textwidth]{uploads/amux.png}
+\caption{Analog Multiplexer Layout}
+\label{fig:amux}
+\end{figure}
+
+\section{\bfseries Challenges and Next Steps}
+
+{\fontsize{9.7}{15}\selectfont Challenges included understanding physical design terminology, LEF/LIB abstractions, OpenLane configuration parameters, and routing outputs. Future work includes executing OpenLane locally, reproducing flow stages, analyzing timing reports, performing DRC/LVS verification, and integrating additional analog macros.}
+
+\vspace{-0.6em}
+\section{\bfseries Conclusion}
+
+{\fontsize{9.7}{15}\selectfont The study provided practical exposure to mixed-signal physical design concepts and open-source EDA tools. Analysis of the repository improved understanding of analog macro integration, OpenLane workflows, and physical design implementation stages, establishing a foundation for future mixed-signal design exploration.}
+
+\vspace{-0.8em}
+\begin{thebibliography}{3}
+\setlength{\itemsep}{1pt}
+
+\bibitem{repo}
+P. M. Praharsha, ``vsdmixedsignalflow: Mixed-signal RTL-to-GDSII flow,'' GitHub repository.
+
+\bibitem{openlane}
+The OpenROAD Project, ``OpenLane: An open-source automated RTL-to-GDSII flow.''
+
+\bibitem{sky130}
+SkyWater Technology and Google, ``SKY130 open-source process design kit.''
+
+\end{thebibliography}
+
+\end{document}
