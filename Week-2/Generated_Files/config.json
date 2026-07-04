@@ -19,5 +19,9 @@
 
     "EXTRA_LIBS": [
         "dir::lib/AMUX2_3V.lib"
+    ],
+
+    "FP_PDN_MACRO_HOOKS": [
+        "AMUX2_3V VPWR VGND VPWR VGND"
     ]
 }
