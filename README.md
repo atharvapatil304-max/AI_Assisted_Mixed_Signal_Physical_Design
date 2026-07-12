@@ -1,5 +1,10 @@
 # AI Assisted Mixed Signal Physical Design Flow
 
+## Demo Video
+
+📹 **Link:**  
+https://drive.google.com/file/d/134JXLbk1jWJxCRZV0ymYh94aXrRBSrWa/view?usp=sharing
+
 ## Overview
 
 This repository documents my work completed during the **AI-Assisted Mixed-Signal Physical Design Internship**. It covers the study of mixed-signal physical design using AI-assisted workflows. The repository is organized week by week, with each section containing reports, prompts, implementation artifacts, command logs, screenshots, and key observations.
