@@ -33,6 +33,7 @@ Throughout this internship, the following topics are explored:
 | [Week-1](./Week-1) | Mixed-Signal Physical Design Fundamentals |
 | [Week-2](./Week-2) | AI-Assisted Repository Analysis and Flow Exploration |
 | [Week-3](./Week-3) | AI-Assisted RTL-to-GDSII Verification and Physical Design Investigation |
+| [Week-4](./Week-4) | Demonstration Video|
 
 ---
 
