@@ -1,0 +1,12 @@
+Qflow project preparation output log Sun Jul 19 16:51:48 2026
+
+--------------------------------
+Qflow project setup
+--------------------------------
+
+Technology set to osu018
+Regenerating files for existing project amux2_dh
+
+No actions specified on command line;
+creating qflow script file ~/Desktop/qflow_test/qflow_exec.sh only.
+Uncomment lines in this file and source the file to run the flow.
