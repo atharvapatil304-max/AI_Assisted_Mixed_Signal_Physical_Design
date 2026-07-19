@@ -1,0 +1,33 @@
+* AMUX2_3V_NEW -- transistor-level SPICE netlist
+*
+* STATUS: best-effort reference netlist, NOT LVS-extracted.
+* I do not have Magic (or any layout-vs-schematic tool) available in this
+* environment, so this was not extracted from the physical geometry --
+* it implements the standard textbook topology for a 2:1 analog mux
+* (1 inverter + 2 complementary transmission gates), which is the only
+* circuit consistent with this cell's exact port list (s, I0, I1, out,
+* VDD, VSS) and its 3 nmos + 3 pmos transistor count.
+*
+* W/L below are derived from the << nmos >> / << pmos >> marker rectangles
+* in AMUX2_3V_NEW.mag, assuming the standard sky130A convention of
+* 1 layout unit = 0.005 um. This unit assumption is NOT independently
+* verified against the PDK, so treat W/L as approximate.
+*
+* Before using this in simulation or tapeout flows, verify against a real
+* Magic `extract` + `ext2spice` (or equivalent LVS) run on the actual layout.
+
+.subckt AMUX2_3V_NEW s I0 I1 out VDD VSS
+
+* --- Select inverter: generates sb = NOT(s) ---
+MI_N   sb   s    VSS  VSS  sky130_fd_pr__nfet_01v8  W=0.4u L=0.1u
+MI_P   sb   s    VDD  VDD  sky130_fd_pr__pfet_01v8  W=0.4u L=0.1u
+
+* --- Transmission gate 0: passes I0 to out when s=1 (sb=0) ---
+MTG0_N out  s    I0   VSS  sky130_fd_pr__nfet_01v8  W=0.4u L=0.1u
+MTG0_P out  sb   I0   VDD  sky130_fd_pr__pfet_01v8  W=0.4u L=0.1u
+
+* --- Transmission gate 1: passes I1 to out when s=0 (sb=1) ---
+MTG1_N out  sb   I1   VSS  sky130_fd_pr__nfet_01v8  W=0.4u L=0.1u
+MTG1_P out  s    I1   VDD  sky130_fd_pr__pfet_01v8  W=0.4u L=0.1u
+
+.ends AMUX2_3V_NEW
