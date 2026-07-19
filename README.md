@@ -33,7 +33,8 @@ Throughout this internship, the following topics are explored:
 | [Week-1](./Week-1) | Mixed-Signal Physical Design Fundamentals |
 | [Week-2](./Week-2) | AI-Assisted Repository Analysis and Flow Exploration |
 | [Week-3](./Week-3) | AI-Assisted RTL-to-GDSII Verification and Physical Design Investigation |
-| [Week-4](./Week-4) | Demonstration Video|
+| [Week-4](./Week-4) | Demonstration Video and Workflow Reproduction |
+| [Week-5](./Week-5) | AI-Assisted Analog Layout Design, DRC, and GDSII Verification |
 
 ---
 
@@ -47,6 +48,10 @@ AI_Assisted_Mixed_Signal_Physical_Design/
 ├── Week2/
 │
 ├── Week3/
+│
+├── Week4/
+│
+├── Week5/
 │
 └── README.md
 ```
@@ -142,6 +147,61 @@ Week 3 focuses on tracing the implementation from RTL to the final GDSII layout,
 - Analog Macro Verification
 - Physical Layout Inspection
 - Final Implementation Analysis
+
+---
+# Week 4 — Demonstration Video
+
+Week 4 focuses on presenting the complete AI-assisted mixed-signal physical design workflow through a reproducible screen-recorded demonstration. The video explains the project objectives, repository organization, AI interaction, design flow, implementation steps, debugging process, and final verification results.
+
+| Section | Description |
+|----------|-------------|
+| Demo Video | Complete internship demonstration video |
+| Presentation | Introduction to the project, workflow, and objectives |
+| Live Workflow | AI-assisted design flow reproduced step-by-step |
+| Commands Used | Terminal commands executed during implementation |
+| AI Prompts | Important prompts used throughout the workflow |
+| Screenshots | Key implementation and verification snapshots |
+| Results | Final implementation and verification outcome |
+
+### Week 4 Demonstration Topics
+
+- Project Introduction
+- Repository Overview
+- Mixed-Signal Design Flow
+- AI-Assisted Workflow
+- OpenLane Execution
+- Analog Macro Integration
+- Layout Verification using Magic and KLayout
+- Errors Encountered and Fixes Applied
+- Final Results
+- Repository Reproducibility
+
+---
+
+# Week 5 — AI-Assisted Analog Layout Design and Verification
+
+Week 5 focuses on creating, modifying, and verifying an analog layout using AI-assisted workflows. The work includes transistor-level simulation, Magic layout development, DRC verification, LVS preparation, GDS generation, and documentation of implementation challenges and observations.
+
+| Section | Description |
+|----------|-------------|
+| AI_Prompts | Prompts used for layout generation, debugging, and verification |
+| Generated Files | Analog circuit and testbench files |
+| Errors and Fixes | Major implementation issues and their resolutions |
+| Screenshots | Layout, DRC, extraction, and verification images |
+| Observations | Technical findings and design conclusions |
+
+### Week 5 Study Modules
+
+- Analog Circuit Design
+- SPICE Simulation
+- Magic Layout Development
+- Layout Editing
+- Design Rule Check (DRC)
+- Layout Verification
+- GDSII Generation
+- AI-Assisted Debugging
+- Error Analysis
+- Final Design Documentation
 
 ---
 
