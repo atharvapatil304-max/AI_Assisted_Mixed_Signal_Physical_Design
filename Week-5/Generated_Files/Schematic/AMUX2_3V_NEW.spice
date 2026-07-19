@@ -1,0 +1,68 @@
+* AMUX2_3V_NEW - double-height 2:1 analog MUX (SKY130, 3.3V I/O devices)
+* Topology: local inverter (SEL -> SELB) + two CMOS transmission gates
+*   TGA (Mn2/Mp2): passes I0 -> OUT when SEL=1 (Mn2 gate=SEL, Mp2 gate=SELB)
+*   TGB (Mn3/Mp3): passes I1 -> OUT when SEL=0 (Mn3 gate=SELB, Mp3 gate=SEL)
+*
+* Device sizing below (W/L in microns) matches the layout's single-finger
+* geometry (W=0.40um, L=0.10um -- illustrative; verify against your real
+* extracted W/L once the layout is finalized in Magic with sky130A rules).
+*
+* Include your PDK's real device models before running, e.g.:
+*   .lib $PDK_ROOT/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+* Model names below use the standard sky130 3.3V I/O device names.
+
+.subckt amux2_3v_new I0 I1 SEL OUT VDD VSS
+
+* --- local inverter: SEL -> SELB ---
+Mn1  SELB SEL   VSS VSS  sky130_fd_pr__nfet_03v3  W=0.40 L=0.10
+Mp1  SELB SEL   VDD VDD  sky130_fd_pr__pfet_03v3  W=0.40 L=0.10
+
+* --- transmission gate A: I0 <-> OUT, enabled when SEL=1 ---
+Mn2  OUT  SEL   I0  VSS  sky130_fd_pr__nfet_03v3  W=0.40 L=0.10
+Mp2  OUT  SELB  I0  VDD  sky130_fd_pr__pfet_03v3  W=0.40 L=0.10
+
+* --- transmission gate B: I1 <-> OUT, enabled when SEL=0 ---
+Mn3  OUT  SELB  I1  VSS  sky130_fd_pr__nfet_03v3  W=0.40 L=0.10
+Mp3  OUT  SEL   I1  VDD  sky130_fd_pr__pfet_03v3  W=0.40 L=0.10
+
+.ends amux2_3v_new
+
+* ---------------------------------------------------------------------
+* Pre-layout functional + timing testbench: both select states
+* ---------------------------------------------------------------------
+.param VDD_VAL=3.3
+.param VDD_HALF=1.65
+.param VDD_LO=0.33
+.param VDD_HI=2.97
+
+Xdut I0 I1 SEL OUT VDD VSS amux2_3v_new
+
+VDD  VDD  0  DC {VDD_VAL}
+VSS  VSS  0  DC 0
+
+* Analog input stimuli (mid-rail sine-ish steps stand in for arbitrary
+* analog levels -- replace with your actual test signal as needed)
+VI0  I0   0  DC 2.0
+VI1  I1   0  DC 1.0
+
+* SEL toggles once at 5ns and again at 15ns so both select states,
+* plus both edges (propagation delay, rise/fall), are exercised
+VSEL SEL  0  PWL(0 0  4.9n 0  5n {VDD_VAL}  14.9n {VDD_VAL}  15n 0  25n 0)
+
+.control
+  tran 10p 30n
+  set filetype=ascii
+  wrdata AMUX2_3V_NEW_prelayout.tran.data v(SEL) v(OUT) v(I0) v(I1)
+
+  * propagation delay / rise-time / fall-time measurements
+  meas tran tpd_sel_out   TRIG v(SEL) VAL=1.65 RISE=1 TARG v(OUT) VAL=1.65 CROSS=1
+  meas tran tpd_sel_fall  TRIG v(SEL) VAL=1.65 FALL=1 TARG v(OUT) VAL=1.65 CROSS=2
+* OUT swings between I1=1.0V and I0=2.0V in this testbench (analog mux,
+* not rail-to-rail) -- rise/fall measured over the actual 10%-90% span.
+  meas tran trise_out     TRIG v(OUT) VAL=1.1 RISE=1 TARG v(OUT) VAL=1.9 RISE=1
+  meas tran tfall_out     TRIG v(OUT) VAL=1.9 FALL=1 TARG v(OUT) VAL=1.1 FALL=1
+
+  print tpd_sel_out tpd_sel_fall trise_out tfall_out
+.endc
+
+.end
