@@ -1,0 +1,7 @@
+*=========================================================
+* SKY130 Library Include
+*=========================================================
+
+.lib /home/atharva/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+* Typical-Typical Corner

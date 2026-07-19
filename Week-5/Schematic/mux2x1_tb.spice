@@ -1,0 +1,29 @@
+*=========================================================
+* Testbench for 2:1 Analog Multiplexer
+*=========================================================
+
+.include "sky130.lib.spice"
+.include "mux2x1.spice"
+
+.control
+
+set filetype=ascii
+
+save all
+
+tran 100p 60n
+
+plot v(A)
+plot v(B)
+plot v(SEL)
+plot v(X)
+
+.meas tran rise_time TRIG v(X) VAL=0.18 RISE=1 \
+TARG v(X) VAL=1.62 RISE=1
+
+.meas tran fall_time TRIG v(X) VAL=1.62 FALL=1 \
+TARG v(X) VAL=0.18 FALL=1
+
+.endc
+
+.end
