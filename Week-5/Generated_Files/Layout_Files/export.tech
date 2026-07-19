@@ -1,0 +1,98 @@
+tech
+    format 28
+    export130
+end
+
+version
+    version 0.1
+    description "Minimal export-only tech (GDS layer numbers taken from public SKY130 documentation). NOT a DRC/LVS tech file."
+end
+
+planes
+    well,w
+    active,a
+    poly,p
+    li,l
+    metal1,m1
+    metal2,m2
+end
+
+types
+    well    nwell
+    active  ndiff
+    active  pdiff
+    active  ndiffc
+    active  pdiffc
+    poly    poly
+    poly    polycont
+    li      locali
+    li      viali
+    metal1  metal1
+    metal1  via1
+    metal2  metal2
+end
+
+contact
+    ndiffc   ndiff    poly
+    pdiffc   pdiff    poly
+    polycont poly     locali
+    viali    locali   metal1
+    via1     metal1   metal2
+end
+
+styles
+    styletype mos
+    nwell 1
+    ndiff 2
+    pdiff 3
+    poly 4
+    ndiffc 5
+    pdiffc 5
+    polycont 5
+    locali 6
+    viali 7
+    metal1 8
+    via1 9
+    metal2 10
+end
+
+compose
+end
+
+connect
+end
+
+cifoutput
+style export(nm)
+    scalefactor 5 nanometers
+    layer NWEL nwell
+        calma 64 20
+    layer DIFN ndiff
+        calma 65 20
+    layer DIFP pdiff
+        calma 65 44
+    layer POLY poly
+        calma 66 20
+    layer LICN ndiffc,pdiffc,polycont
+        calma 66 44
+    layer LI1 locali
+        calma 67 20
+    layer MCON viali
+        calma 67 44
+    layer MET1 metal1
+        calma 68 20
+    layer VIA1 via1
+        calma 68 44
+    layer MET2 metal2
+        calma 69 20
+end
+
+cifinput
+end
+
+drc
+end
+
+extract
+    style default
+end
