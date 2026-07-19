@@ -1,51 +1,40 @@
-*=========================================================
-* 2:1 Analog Multiplexer
-* SKY130A Technology
-*=========================================================
+*===========================================================
+* amux2_dh.spice
+* 2:1 Analog Multiplexer (Double Height)
+* Sky130 Transistor-Level Implementation
+*
+* Pins:
+*   IN0  - Input 0
+*   IN1  - Input 1
+*   SEL  - Select
+*   OUT  - Output
+*   VPWR - 1.8V Supply
+*   VGND - Ground
+*===========================================================
 
-.include "sky130.lib.spice"
+.subckt amux2_dh IN0 IN1 SEL OUT VPWR VGND
 
-.param VDD = 1.8
+*-----------------------------------------------------------
+* Select Inverter
+*-----------------------------------------------------------
 
-************************************************
-* Power Supplies
-************************************************
+M1 SELB SEL VGND VGND sky130_fd_pr__nfet_01v8 L=0.5u W=0.65u
+M2 SELB SEL VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.5u W=1.3u
 
-VDD VPWR 0 DC {VDD}
-VSS VGND 0 DC 0
+*-----------------------------------------------------------
+* Transmission Gate for IN0
+* ON when SEL = 0
+*-----------------------------------------------------------
 
-************************************************
-* Analog Inputs
-************************************************
+M3 OUT SELB IN0 VGND sky130_fd_pr__nfet_01v8 L=0.5u W=1.5u
+M4 OUT SEL  IN0 VPWR sky130_fd_pr__pfet_01v8 L=0.5u W=3.0u
 
-VA A 0 DC 0.5
-VB B 0 DC 1.5
+*-----------------------------------------------------------
+* Transmission Gate for IN1
+* ON when SEL = 1
+*-----------------------------------------------------------
 
-************************************************
-* Select Signal
-************************************************
+M5 OUT SEL  IN1 VGND sky130_fd_pr__nfet_01v8 L=0.5u W=1.5u
+M6 OUT SELB IN1 VPWR sky130_fd_pr__pfet_01v8 L=0.5u W=3.0u
 
-VSEL SEL 0 PULSE(0 1.8 5n 100p 100p 10n 20n)
-
-************************************************
-* Inverter for SEL_B
-************************************************
-
-M1 SEL_B SEL VPWR VPWR sky130_fd_pr__pfet_01v8 W=1.0 L=0.15
-M2 SEL_B SEL VGND VGND sky130_fd_pr__nfet_01v8 W=0.42 L=0.15
-
-************************************************
-* Transmission Gate A
-************************************************
-
-M3 X A SEL_B VPWR sky130_fd_pr__pfet_01v8 W=1.0 L=0.15
-M4 X A SEL VGND VGND sky130_fd_pr__nfet_01v8 W=0.42 L=0.15
-
-************************************************
-* Transmission Gate B
-************************************************
-
-M5 X B SEL VPWR sky130_fd_pr__pfet_01v8 W=1.0 L=0.15
-M6 X B SEL_B VGND VGND sky130_fd_pr__nfet_01v8 W=0.42 L=0.15
-
-.end
+.ends amux2_dh
