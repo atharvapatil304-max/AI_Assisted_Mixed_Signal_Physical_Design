@@ -1,0 +1,36 @@
+WEEK 6 VERIFIED TERMINAL RESULTS
+
+Pre-synthesis:
+Found and reported 0 problems.
+
+AMUX Magic DRC:
+Total DRC errors found: 0
+
+Final design_mux.gds Magic DRC:
+Total DRC errors found: 0
+
+DEF:
+DESIGN design_mux ;
+DIEAREA ( 0 0 ) ( 129630 140350 ) ;
+COMPONENTS 536 ;
+PINS 13 ;
+NETS 258 ;
+
+Synthesized statistics:
+Number of cells: 248
+AMUX2_3V: 1
+Chip area (cell area statistic): 2765.152000
+Sequential elements: 1208.6592 (43.71%)
+
+Final synthesized netlist:
+AMUX2_3V AMUX2_3V (.select(select),
+    .I0(I0),
+    .out(out),
+    .I1(I1));
+
+Netgen LVS:
+Circuit 1: AMUX2_3V_NEW contains 6 devices
+Circuit 2: amux2_double_height contains 6 devices
+Final result: Top level cell passed pin matching.
+
+
