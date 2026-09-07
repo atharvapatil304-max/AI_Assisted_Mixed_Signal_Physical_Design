@@ -1,0 +1,16 @@
+
+Magic 8.3 revision 669 - Compiled on Sat Jul  4 04:24:05 AM IST 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Input style sky130(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "AMUX2_3V_NEW" from command line.
+Cell AMUX2_3V_NEW read from current working directory
+Total DRC errors found: 0
